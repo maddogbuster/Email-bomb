@@ -57,8 +57,8 @@ class Email_Bomber:
     def __init__(self):
         try:
             print(bcolors.RED + '\n+[+[+[ Initializing program ]+]+]+')
-            self.target = str(input(bcolors.GREEN + 'Enter target email <: '))
-            self.mode = int(input(bcolors.GREEN + 'Enter Bomb mode (1,2,3,4) || 1:(1000) 2:(500) 3:(250) 4:(custom) <: '))
+            self.target = str(input(bcolors.GREEN + 'Enter target email: '))
+            self.mode = int(input(bcolors.GREEN + 'Enter Bomb mode (1,2,3,4) || 1:(1000) 2:(500) 3:(250) 4:(custom): '))
             if int(self.mode) > int(4) or int(self.mode) < int(1):
                 print('ERROR: Invalid Option. Goodbye.')
                 sys.exit(1)
@@ -84,14 +84,14 @@ class Email_Bomber:
     def email(self):
         try:
             print(bcolors.RED + '\n+[+[+[ Setting up Email ]+]+]+')
-            self.server = str(input(bcolors.GREEN + 'Enter email server or select options - 1:Gmail 2:Yahoo 3:Outlook <: '))
+            self.server = str(input(bcolors.GREEN + 'Enter email server or select options - 1:Gmail 2:Yahoo 3:Outlook: '))
             premade = ['1', '2', '3']
             default_port = True
             if self.server not in premade:
                 default_port = False
-                self.port = int(input(bcolors.GREEN + 'Enter port number <: '))
+                self.port = int(input(bcolors.GREEN + 'Enter port number: '))
 
-            if default_port == True:
+            if default_port:
                 self.port = int(587)
 
             if self.server == '1':
@@ -101,10 +101,10 @@ class Email_Bomber:
             elif self.server == '3':
                 self.server = 'smtp-mail.outlook.com'
 
-            self.fromAdder = str(input(bcolors.GREEN + 'Enter from address <: '))
-            self.fromPwd = str(input(bcolors.GREEN + 'Enter from password <: '))
-            self.subject = str(input(bcolors.GREEN + 'Enter subject <: '))
-            self.message = str(input(bcolors.GREEN + 'Enter message <: '))
+            self.fromAdder = str(input(bcolors.GREEN + 'Enter from address: '))
+            self.fromPwd = str(input(bcolors.GREEN + 'Enter from password: '))
+            self.subject = str(input(bcolors.GREEN + 'Enter subject: '))
+            self.message = str(input(bcolors.GREEN + 'Enter message: '))
 
             self.msg = '''From: %s\nTo: %s\nSubject %s\n%s\n
             ''' % (self.fromAdder, self.target, self.subject, self.message)
