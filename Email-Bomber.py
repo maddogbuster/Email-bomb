@@ -47,7 +47,7 @@ def banner():
                                    `._###############_,'                 
                                       `--..#####..--'                                      ,''.
 *_______________________________________________________________________________________,'(Bomb)
-                                                                                           `---' ''')
+                                                                                            `---' ''')
 
 
 class Email_Bomber:
@@ -81,7 +81,7 @@ class Email_Bomber:
                 self.amount = int(250)
 
             else:
-                self.amount = int(input(bcolors.GREEN + 'Choose a CUSTOM amount <: '))
+                self.amount = int(input(bcolors.GREEN + 'Choose CUSTOM amount <: '))
             print(bcolors.RED + f'\n+[+[+[+[+[+[ Bomb mode selected: {self.mode} and {self.amount} emails ]+]+]+]+]+]+')
 
         except Exception as e:
@@ -89,12 +89,12 @@ class Email_Bomber:
 
     def email(self):
         try:
-            print(bcolors.RED + '\n+[+[+[+[+[+[ Setting up Email ]+]+]+]+]+]+')
-            self.server = str(input(bcolors.GREEN + 'Enter email or select options - 1:Gmail 2:Yahoo 3:Outlook: '))
-            premade = ['1', '2', '3']
+            print(bcolors.RED + '\nTip: Use burner email!...   +[+[+[+[+[+[ Setup Email ]+]+]+]+]+]+ ')
+            self.server = str(input(bcolors.GREEN + 'Enter email / select options - 1: G-mail 2: Yahoo 3: Outlook: '))
+            pre_made = ['1', '2', '3']
             default_port = True
 
-            if self.server not in premade:
+            if self.server not in pre_made:
                 default_port = False
                 self.port = int(input(bcolors.GREEN + 'Enter port number: '))
 
