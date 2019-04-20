@@ -9,7 +9,7 @@ class bcolors:
 
 
 def banner():
-    print(bcolors.GREEN + '+[+[+[ Email-Bomber v1.0 ]+]+]+')
+    print(bcolors.GREEN + '+[+[+[+[+[+[+[+[+[ Email-Bomber v1.0 ]+]+]+]+]+]+]+]+]+')
     print(bcolors.RED + '''                           
     
                                  _ ___                 _ _ 
