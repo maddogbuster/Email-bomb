@@ -55,7 +55,7 @@ class Email_Bomber:
 
     def __init__(self):
         try:
-            print(bcolors.RED + '\n+[+[+[ Initializing program ]+]+]+')
+            print(bcolors.RED + '\n+[+[+[+[+[+[ Initializing program ]+]+]+]+]+]+')
             self.target = str(input(bcolors.GREEN + 'Enter target email: '))
             self.mode = int(input(bcolors.GREEN + 'Enter Bomb mode (1,2,3,4) || 1:(1000) 2:(500) 3:(250) 4:(custom): '))
 
@@ -68,7 +68,7 @@ class Email_Bomber:
 
     def bomb(self):
         try:
-            print(bcolors.RED + '\n+[+[+[ Setting up Bomb ]+]+]+')
+            print(bcolors.RED + '\n+[+[+[+[+[+[ Setting up Bomb ]+]+]+]+]+]+')
             self.amount = None
 
             if self.mode == int(1):
@@ -82,14 +82,14 @@ class Email_Bomber:
 
             else:
                 self.amount = int(input(bcolors.GREEN + 'Choose a CUSTOM amount <: '))
-            print(bcolors.RED + f'\n+[+[+[ You have selected BOMB mode: {self.mode} and {self.amount} emails ]+]+]+')
+            print(bcolors.RED + f'\n+[+[+[+[+[+[ Bomb mode selected: {self.mode} and {self.amount} emails ]+]+]+]+]+]+')
 
         except Exception as e:
             print(f'ERROR: {e}')
 
     def email(self):
         try:
-            print(bcolors.RED + '\n+[+[+[ Setting up Email ]+]+]+')
+            print(bcolors.RED + '\n+[+[+[+[+[+[ Setting up Email ]+]+]+]+]+]+')
             self.server = str(input(bcolors.GREEN + 'Enter email or select options - 1:Gmail 2:Yahoo 3:Outlook: '))
             premade = ['1', '2', '3']
             default_port = True
@@ -137,12 +137,12 @@ class Email_Bomber:
             print(f'ERROR: {e}')
 
     def attack(self):
-        print(bcolors.RED + '\n+[+[+[ Attacking... ]+]+]+')
+        print(bcolors.RED + '\n+[+[+[+[+[+[ Attacking... ]+]+]+]+]+]+')
 
         for email in range(self.amount + 1):
             self.send()
         self.s.close()
-        print('\n+[+[+[ Attacking Finished ]+]+]+')
+        print('\n+[+[+[+[+[+[ Attacking Finished ]+]+]+]+]+]+')
         sys.exit(0)
 
 
