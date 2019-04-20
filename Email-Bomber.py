@@ -90,7 +90,7 @@ class Email_Bomber:
     def email(self):
         try:
             print(bcolors.RED + '\n+[+[+[ Setting up Email ]+]+]+')
-            self.server = str(input(bcolors.GREEN + 'Enter email server or select options - 1:Gmail 2:Yahoo 3:Outlook: '))
+            self.server = str(input(bcolors.GREEN + 'Enter email or select options - 1:Gmail 2:Yahoo 3:Outlook: '))
             premade = ['1', '2', '3']
             default_port = True
 
